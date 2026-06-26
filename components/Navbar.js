@@ -90,9 +90,9 @@ export default function Navbar() {
         </div>
 
         <button
-          aria-label="Open menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           className="relative z-[70] grid h-11 w-11 place-items-center rounded-md border border-edge bg-ink/40 text-cloud backdrop-blur lg:hidden"
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen(!open)}
         >
           <span className="relative block h-3.5 w-5">
             <span className="absolute left-0 top-0 h-0.5 w-5 bg-current" />
