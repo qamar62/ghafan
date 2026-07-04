@@ -78,11 +78,9 @@ body {
       linear-gradient(160deg, #1b1e24 0%, #101216 100%);
   }
 
-  .diamond-plate {
-    background-color: #14161b;
-    background-image:
-      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 1px, transparent 2px),
-      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 1px, transparent 2px);
+  .grid-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 18px 18px;
   }
 
@@ -111,5 +109,38 @@ body {
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* ── Admin: print quotation / invoice ───────────────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    background: #fff !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .print-doc,
+  .print-doc * {
+    visibility: visible;
+  }
+  .print-doc {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print,
+  header,
+  footer,
+  nav {
+    display: none !important;
   }
 }
